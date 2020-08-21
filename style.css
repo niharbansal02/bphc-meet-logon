@@ -1,0 +1,41 @@
+/* .button_regis{
+    background-color: blue;
+    color: blue;
+} */
+
+body{
+    text-align: center;
+}
+
+header{
+    text-align: center;
+}
+
+.buttons{
+    display: flex;
+    text-align: center;
+    /* margin: 0 auto; */
+}
+
+button{
+    margin: 0 auto;
+    display: inline-block;
+    padding: 20px;
+    font-size: 20px;
+}
+
+main{
+    display: flex;
+    flex-flow: column;
+}
+
+.register{
+    /* margin: 0 auto; */
+    visibility: hidden;
+    /* display: block; */
+}
+
+.logon{
+    visibility: hidden;
+    /* display: block; */
+}
