@@ -23,16 +23,42 @@
         <main>
             <section class="register">
                 <p>This will be used to Register classes.</p>
-                <input type="time" class="time_1" placeholder="TIME(IST) 24hrs">
-                <input type="text" class="link_1" placeholder="LINK">
+                <!-- <input type="time" class="time_1" placeholder="TIME(IST) 24hrs">
+                <input type="text" class="link_1" placeholder="LINK"> -->
                 
-                <button class="regis_submit">Submit</button>
+                <!-- <button class="regis_submit">Submit</button> -->
 
+                <div class="datalists">
+                    <label for="course-list">Course: </label>
+                    
+                    <!-- datalist for  courses-->
+                    <input list="course-list" class="dl dl0"> 
+                    <datalist id="course-list">
+                        <option value="BIO F111">BIOLIAb </option>
+                        <option value="BIO F110">
+                    </datalist>
+                    
+                    <input list="course-list" class="dl dl1"> 
+                    <datalist id="course-list">
+                        <option value="BIO F111">BIOLIAb </option>
+                        <option value="BIO F110">
+                    </datalist>
+                
+                    <input list="course-list" class="dl dl2"> 
+                    <datalist id="course-list">
+                        <option value="BIO F111">BIOLIAb </option>
+                        <option value="BIO F110">
+                    </datalist>
+                </div>
+            
+                <button type="submit" class="logon-submit">Submit</button>
 
             </section>
 
             <section class="logon">
                 <p>This will be used to log into classes.</p>
+
+                
             </section>
         </main>
 
@@ -66,7 +92,7 @@
 
         <!-- TODO: Add SDKs for Firebase products that you want to use
             https://firebase.google.com/docs/web/setup#available-libraries -->
-        <!-- <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script> -->
+        <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
 
         <script>
         // Your web app's Firebase configuration

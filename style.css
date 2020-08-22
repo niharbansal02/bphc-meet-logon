@@ -4,11 +4,30 @@
 } */
 
 body{
-    text-align: center;
+    /* text-align: center; */
+    /* background-color: black; */
+    /* color: white; */
 }
 
 header{
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    /* justify-items: end; */
+    /* text-align: left; */
+}
+
+h1{
+    margin: 0 auto;
+    height: 50px;
+    width: 300px;
+    flex: 1 1 0;
+}
+
+h2{
+    margin: 0 auto;
+    height: 70px;
+    width: 100px;
+    flex: 1 1 0;    
 }
 
 .buttons{
@@ -38,4 +57,33 @@ main{
 .logon{
     visibility: hidden;
     /* display: block; */
+}
+
+.datalists{
+    display: flex;
+    flex-flow: column;
+}
+
+/* datalist:nth-child(odd){
+    background-color: #dddddd;
+    color: #ffffff;
+} */
+
+.dl{
+    margin: 10px auto;
+    padding: 20px;
+    height: 50px;
+    width: 200px;
+}
+
+.dl1{
+    flex-grow: 1;
+}
+
+.dl2{
+    flex-grow: 2;
+}
+
+.dl3{
+    flex-grow: 3;
 }
