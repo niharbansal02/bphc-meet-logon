@@ -1,3 +1,8 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /* .button_regis{
     background-color: blue;
     color: blue;
@@ -5,29 +10,49 @@
 
 body{
     /* text-align: center; */
-    /* background-color: black; */
-    /* color: white; */
+    background-color: #111111;
+    color: white;
 }
 
 header{
     display: flex;
     justify-content: space-between;
+    background-color: #00796b;
+    height: 100px;
+    width: auto;
+    color: #efefef;
+    border-radius: 5px;
+    border: 2px solid #111111;
+    transition: linear 0.5s;
+    margin-bottom: 10px;
     /* justify-items: end; */
     /* text-align: left; */
 }
 
+header:hover{
+    border: 2px solid white;
+}
+
+.shadow{
+    height: 8px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: linear-gradient(0deg, black, white);
+}
+
 h1{
-    margin: 0 auto;
+    margin: 5px 5px;
     height: 50px;
     width: 300px;
     flex: 1 1 0;
 }
 
 h2{
-    margin: 0 auto;
+    margin: 5px 5px;
     height: 70px;
     width: 100px;
-    flex: 1 1 0;    
+    flex: 1 1 0;   
 }
 
 .buttons{
@@ -86,4 +111,14 @@ main{
 
 .dl3{
     flex-grow: 3;
+}
+
+
+footer{
+    font-size: 20px;
+}
+
+footer span{
+    font-size: 20px;
+    color: red;
 }
