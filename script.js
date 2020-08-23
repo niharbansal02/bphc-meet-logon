@@ -16,14 +16,14 @@ const firestore = firebase.firestore();
 const settings = {timestampsInSnapshots: true};
 firestore.settings(settings);
 
-const docRef = firestore.doc("TimeTable/CreateNa");
-docRef.set({
-    any: "new"
-}).then(() => {
-    console.log("Yaayt");
-}).catch( error => {
-    console.log("Error: ", error);
-});
+// const docRef = firestore.doc("TimeTable/CreateNa");
+// docRef.set({
+//     any: "new"
+// }).then(() => {
+//     console.log("Yaayt");
+// }).catch( error => {
+//     console.log("Error: ", error);
+// });
 
 
 regis_button = document.querySelector(".button_regis");
@@ -276,3 +276,20 @@ const addCombinedToFirestore = () => {
 };
 
 // addCombinedToFirestore();
+
+const addOptionsToDatalist = async () => {
+    const dataList = document.querySelector("#course-list");
+    // dataList.innerHTML += "<option value=\"BIO\">BIOOO</option>";
+    // var fireStoreRef = firestore.collection("TimeTable/");
+    const snapshot = await firestore.collection("TimeTable/").get();
+
+    snapshot.docs.map(doc => {
+        let currObj = doc.data();
+        let courseId = doc.id;
+        let courseName = currObj["courseName"];
+        dataList.innerHTML += `<option value=\"${courseId}\">${courseName}</option>`;
+    });
+
+};
+
+addOptionsToDatalist();

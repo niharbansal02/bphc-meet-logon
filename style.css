@@ -63,6 +63,7 @@ h2{
 }
 
 button{
+    cursor: pointer;
     margin: 0 auto;
     display: inline-block;
     background-color: coral;
