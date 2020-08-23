@@ -42,7 +42,8 @@ header:hover{
 }
 
 h1{
-    margin: 5px 5px;
+    margin: 20px 5px;
+    padding: 5px;
     height: 50px;
     width: 300px;
     flex: 1 1 0;
@@ -64,8 +65,16 @@ h2{
 button{
     margin: 0 auto;
     display: inline-block;
+    background-color: coral;
     padding: 20px;
     font-size: 20px;
+    transition: ease 0.5s;
+    border-radius: 20px;
+}
+
+button:hover{
+    background-color: purple;
+    /* transition: ease 0.5s; */
 }
 
 main{
