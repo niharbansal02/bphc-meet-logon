@@ -57,15 +57,21 @@ h2{
 }
 
 .buttons{
+    height: 200px;
+    width: 200px;
     display: flex;
+    flex-flow: column;
     text-align: center;
-    /* margin: 0 auto; */
+    border: 5px solid white;
+    margin: 50px auto;
+    padding: 20px;
 }
 
 button{
+    height: 70px;
+    width: 150px;
     cursor: pointer;
-    margin: 0 auto;
-    display: inline-block;
+    margin: 5px auto;
     background-color: coral;
     padding: 20px;
     font-size: 20px;
@@ -131,4 +137,9 @@ footer{
 footer span{
     font-size: 20px;
     color: red;
+}
+
+.fas{
+    margin: 0 60%;
+    cursor: pointer;
 }

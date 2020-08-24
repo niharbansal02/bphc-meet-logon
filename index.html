@@ -3,6 +3,7 @@
         <title>Meet Logon</title>
         <link href="style.css" rel="stylesheet" type="text/css">
         <script src="./script.js" type="text/javascript" defer></script>
+        <script src="https://kit.fontawesome.com/53df90b9c1.js" crossorigin="anonymous"></script>
     </head>
     
     <body>
@@ -27,26 +28,20 @@
                 <!-- <input type="time" class="time_1" placeholder="TIME(IST) 24hrs">
                 <input type="text" class="link_1" placeholder="LINK"> -->
                 
-                <!-- <button class="regis_submit">Submit</button> -->
-
                 <div class="datalists">
                     <label for="course-list">Course: </label>
                     
                     <!-- datalist for  courses-->
-                    <input list="course-list" class="dl dl0"> 
+                    <input list="course-list" class="dl dl0" required>  <!-- req will work only with form-->
                     <datalist id="course-list">
                     </datalist>
+                    <i class="fas fa-plus-circle"></i>
                     
-                    <input list="course-list" class="dl dl1"> 
-                    <datalist id="course-list">
-                    </datalist>
-                
-                    <input list="course-list" class="dl dl2"> 
-                    <datalist id="course-list">
-                    </datalist>
                 </div>
             
-                <button type="submit" class="logon-submit">Submit</button>
+                <button type="submit" class="regis-submit">Submit</button>
+
+                <div class="confirmation"></div>
 
             </section>
 
