@@ -64,7 +64,7 @@ h2{
     display: flex;
     flex-flow: column;
     text-align: center;
-    border: 5px solid white;
+    /* border: 5px solid white; */
     margin: 50px auto;
     padding: 20px;
 }
