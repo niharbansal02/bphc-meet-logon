@@ -9,7 +9,6 @@
 } */
 
 body{
-    /* text-align: center; */
     background-color: #111111;
     color: white;
 }
@@ -25,8 +24,6 @@ header{
     border: 2px solid #111111;
     transition: linear 0.5s;
     margin-bottom: 10px;
-    /* justify-items: end; */
-    /* text-align: left; */
 }
 
 header:hover{
@@ -42,18 +39,21 @@ header:hover{
 }
 
 h1{
-    margin: 20px 5px;
+    margin: 10px 5px;
     padding: 5px;
-    height: 50px;
-    width: 300px;
-    flex: 1 1 0;
+    min-height: 50px;
+    min-width: 300px;
+    vertical-align: middle;
+    /* flex: 6 1 0; */
+    /* border: 2px solid black; */
 }
 
 h2{
     margin: 5px 5px;
-    height: 70px;
-    width: 100px;
-    flex: 1 1 0;   
+    min-height: 80px;
+    min-width: 180px;
+    /* flex: 1 1 0;    */
+    /* border: 2px solid black; */
 }
 
 .buttons{
@@ -85,8 +85,7 @@ button:hover{
 }
 
 main{
-    display: flex;
-    flex-flow: column;
+    flex-flow: column; */
 }
 
 .register{
@@ -131,11 +130,15 @@ main{
 
 
 footer{
+    border-top: 2px solid maroon;
     font-size: 20px;
+    background-color: #120350;
+    padding: 20px;
+    margin: 20px 0 5px 0;
 }
 
 footer span{
-    font-size: 20px;
+    font-size: 25px;
     color: red;
 }
 

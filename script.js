@@ -1,4 +1,4 @@
-var firebaseConfig = {
+let firebaseConfig = {
     apiKey: "AIzaSyCAv8FYuYDHp3xRhmiHpCDtl4aeWEyF-g4",
     authDomain: "meet-logon.firebaseapp.com",
     databaseURL: "https://meet-logon.firebaseio.com",
@@ -54,7 +54,7 @@ log_button.addEventListener("click", () => {
     document.querySelector(".register").style.visibility = "hidden";
 });
 
-// var x = document.createElement("BUTTON");
+// let x = document.createElement("BUTTON");
 // x.setAttribute("class", "hi_button");
 // x.innerHTML = "HI";
 // document.querySelector(".register").appendChild(x);
@@ -69,7 +69,7 @@ log_button.addEventListener("click", () => {
 
 
 
-// var anchor = document.createElement("A");
+// let anchor = document.createElement("A");
 // anchor.setAttribute("href", "https://www.google.com");
 // anchor.setAttribute("target", "_blank");
 // anchor.innerHTML = "HI";
@@ -79,7 +79,7 @@ log_button.addEventListener("click", () => {
 // console.log("    Stripped    ".trim());
 
 const retrieveData = () => {
-    var ttRef = firestore.collection("TimeTable");
+    let ttRef = firestore.collection("TimeTable");
 
     ttRef.doc("BIO F111")
         .get()
@@ -108,7 +108,30 @@ const retrieveData = () => {
 
 // retrieveData();
 
+const displayCourseDet = courseObj => {
+    let fireStoreRef;
 
+    for(courseId in courseObj){
+        fireStoreRef = firestore.collection("TimeTable/");    
+        
+        fireStoreRef.doc(courseId)
+            .get()
+            .then(doc => {
+                if(doc.exists){
+                    console.log(doc.data()["courseName"]);
+                    let sections = (doc.data()["sections"]);
+                    for(section in sections){
+                        console.log(section);
+                    }
+                } else {
+                    console.log("Doc Not found");
+                }
+            }).catch(error => {
+                console.log(`${error} occured while fetching ${courseId}.`);
+            });
+    }
+
+}
 
 
 
@@ -122,22 +145,21 @@ log_on_submit.addEventListener("click", () => {
     for(let i = 0; i <= count; i++){
         let courseId = document.querySelector(".dl" + i).value;
         
-        let tempTTRef = firestore.doc("TimeTable/" + courseId);
-        let time = tempTTRef.get().then(doc => {
-            if(doc.exists){
-                let sections = doc.data()["sections"];
-                for(section in sections){
-                    // console.log(section);
-                }
+        // let tempTTRef = firestore.doc("TimeTable/" + courseId);
+        // let time = tempTTRef.get().then(doc => {
+        //     if(doc.exists){
+        //         let sections = doc.data()["sections"];
+        //         for(section in sections){
+        //             // console.log(section);
+        //         }
 
-            }else{
-                console.log("No doc foubd:)");
-            }
-        }).catch(error => {
-            console.log(`${error} occured while fetching for ${courseId}.`);
-        });
+        //     }else{
+        //         console.log("No doc foubd:)");
+        //     }
+        // }).catch(error => {
+        //     console.log(`${error} occured while fetching for ${courseId}.`);
+        // });
 
-        // console.log();
         let jsonObjStr = `{ "${courseId}": { "MeetLink": "meet", "StreamLink": "Alter" } }`;
         let jsonObj = JSON.parse(jsonObjStr);
         jsonObjArr.push(jsonObj);
@@ -149,7 +171,6 @@ log_on_submit.addEventListener("click", () => {
                 // });
     }
             
-    // console.log(jsonObjArr[0]);
     let combObj = {};
 
     for(let i = 0; i <= count; i++){
@@ -157,6 +178,7 @@ log_on_submit.addEventListener("click", () => {
     }
 
     console.log(combObj);
+    displayCourseDet(combObj);
     
 
     // let jsonObjF = JSON.parse(jsonObjFS);
@@ -170,8 +192,8 @@ log_on_submit.addEventListener("click", () => {
 
 });
 
-var newEl = document.createElement("H2");
-document.querySelector("header").appendChild(newEl);
+
+let dateTime = document.querySelector(".date_time_holder");
 
 dateFunc = () =>{
     const formatFixer = nom => {
@@ -209,7 +231,7 @@ dateFunc = () =>{
         return dayStr;
     };
 
-    var d = new Date();
+    let d = new Date();
     yearN = d.getFullYear();
     monthN = formatFixer(d.getMonth() + 1);
     dateN = formatFixer(d.getDate());
@@ -218,21 +240,9 @@ dateFunc = () =>{
     secN = formatFixer(d.getSeconds());
     milSecN = d.getMilliseconds();
     dayWeekN = d.getDay();
-    // if(hourN < 10){
-    //     hourN = "0" + hourN;
-    // }
-    
-    // if(minN < 10){
-    //     minN = "0" + minN;
-    // }
 
-    // if (secN < 10){
-    //     secN = "0" + (secN);
-    // }
+    dateTime.innerHTML = dateN + " - " + monthN + " - " + yearN + "<br>" + stringDay(dayWeekN) + "<br>" + hourN + ":" + minN + ":" + secN;
 
-    newEl.innerHTML = dateN + " - " + monthN + " - " + yearN + "<br>" + stringDay(dayWeekN) + "<br>" + hourN + ":" + minN + ":" + secN;
-
-    // console.log(yearN, monthN, dateN);
     let dateObj = {
         "year": yearN,
         "month": monthN,
@@ -252,7 +262,7 @@ setInterval(dateFunc, 100);
 const addOptionsToDatalist = async () => {
     const dataList = document.querySelector("#course-list");
     // dataList.innerHTML += "<option value=\"BIO\">BIOOO</option>";
-    // var fireStoreRef = firestore.collection("TimeTable/");
+    // let fireStoreRef = firestore.collection("TimeTable/");
     const snapshot = await firestore.collection("TimeTable/").get();
 
     snapshot.docs.map(doc => {
