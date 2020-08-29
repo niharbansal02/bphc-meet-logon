@@ -3,10 +3,12 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* .button_regis{
-    background-color: blue;
-    color: blue;
-} */
+.submit_regis_wrapper{
+    display: flex;
+    justify-content: space-around;
+    margin: 50px;
+}
+
 
 body{
     background-color: #111111;
@@ -82,10 +84,6 @@ button{
 button:hover{
     background-color: purple;
     /* transition: ease 0.5s; */
-}
-
-main{
-    flex-flow: column; */
 }
 
 .register{

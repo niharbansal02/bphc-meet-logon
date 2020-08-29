@@ -16,15 +16,6 @@ const firestore = firebase.firestore();
 const settings = {timestampsInSnapshots: true};
 firestore.settings(settings);
 
-// const docRef = firestore.doc("TimeTable/CreateNa");
-// docRef.set({
-//     any: "new"
-// }).then(() => {
-//     console.log("Yaayt");
-// }).catch( error => {
-//     console.log("Error: ", error);
-// });
-
 
 regis_button = document.querySelector(".button_regis");
 log_button = document.querySelector(".button_log");
@@ -33,11 +24,6 @@ regis_submit = document.querySelector(".regis_submit");
 
 const dataListPlus = document.querySelector(".fas");
 let count = 0;
-// console.log(regis_button);
-
-// regis_button.onclick = () => {
-//     document.querySelector(".register").style.visibility = "visible";
-// };
 
 regis_button.addEventListener("click", function(){
     regis_button.style.visibility = "hidden";
@@ -144,31 +130,9 @@ log_on_submit.addEventListener("click", () => {
 
     for(let i = 0; i <= count; i++){
         let courseId = document.querySelector(".dl" + i).value;
-        
-        // let tempTTRef = firestore.doc("TimeTable/" + courseId);
-        // let time = tempTTRef.get().then(doc => {
-        //     if(doc.exists){
-        //         let sections = doc.data()["sections"];
-        //         for(section in sections){
-        //             // console.log(section);
-        //         }
-
-        //     }else{
-        //         console.log("No doc foubd:)");
-        //     }
-        // }).catch(error => {
-        //     console.log(`${error} occured while fetching for ${courseId}.`);
-        // });
-
         let jsonObjStr = `{ "${courseId}": { "MeetLink": "meet", "StreamLink": "Alter" } }`;
         let jsonObj = JSON.parse(jsonObjStr);
         jsonObjArr.push(jsonObj);
-
-        // fireStoreRef.set(jsonObj).then(() => {
-            //     console.log(`${courseId} succesfully added.`);
-            // }).catch(error => {
-                //     console.log(`${error} occured while adding ${courseId}`);
-                // });
     }
             
     let combObj = {};
@@ -178,17 +142,15 @@ log_on_submit.addEventListener("click", () => {
     }
 
     console.log(combObj);
-    displayCourseDet(combObj);
+    fireStoreRef.set(combObj)
+        .then(() => {
+            console.log("Successfully updated");
+            displayCourseDet(combObj);
+        }).catch(error => {
+            console.log(`${error} occured`);
+        });
+        
     
-
-    // let jsonObjF = JSON.parse(jsonObjFS);
-
-    // fireStoreRef.set(jsonObjF)
-    //     .then(() => {
-    //         console.log(`$ succesfully added.`);
-    //     }).catch(error => {
-    //         console.log(`${error} occured while adding ${courseId}`);
-    //     });
 
 });
 
@@ -275,7 +237,6 @@ const addOptionsToDatalist = async () => {
 };
 
 addOptionsToDatalist();
-
 
 dataListPlus.onclick = () =>{
     count++;
